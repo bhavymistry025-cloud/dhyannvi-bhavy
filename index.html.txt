@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Dhyanvi 💖</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffd6e8,#ffc0cb,#ffe6f2);
+}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+
+.container{
+    padding:60px;
+}
+
+h1{
+    font-size:42px;
+    color:#cc0066;
+}
+
+h2{
+    color:#d63384;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    margin:15px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#ff4da6;
+    color:white;
+    transition:0.3s;
+    position:relative;
+}
+button:hover{
+    transform:scale(1.1);
+    background:#ff1493;
+}
+
+.hidden{ display:none; }
+
+img{
+    width:220px;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+p{
+    font-size:20px;
+    color:#99004d;
+    max-width:750px;
+    margin:auto;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="startPage">
+    <h1>Dhyanvi 💕</h1>
+    <h2>Are You Ready To See Something Special? 💖</h2>
+    <button onclick="showGallery()">Yes</button>
+    <button id="noBtn">No</button>
+</div>
+
+<div class="container hidden" id="galleryPage">
+    <h1>Beautiful Dhyanvi 🌸</h1>
+
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+
+    <p>
+        Dhyanvi, from the moment you came into my life,  
+        everything started feeling different and more beautiful.  
+        Your smile feels like peace, your laugh feels like happiness,  
+        and your presence makes my world brighter.  
+        There is something magical about you that I can’t explain,  
+        but I know one thing for sure —  
+        You just complete me. I love you. 💖
+        <br><br>
+        — Forever Yours, Bhavy 💕
+    </p>
+
+    <br><br>
+    <button onclick="showProposal()">Continue 💍</button>
+</div>
+
+<div class="container hidden" id="proposalPage">
+    <h1>Dhyanvi, Will You Be Mine Forever? 💍</h1>
+    <button onclick="finalYes()">YES 💖</button>
+    <button id="noBtn2">No</button>
+</div>
+
+<div class="container hidden" id="finalPage">
+    <h1>Yayyy Dhyanvi 💕</h1>
+    <h2>You just made me the happiest person alive! 💖</h2>
+</div>
+
+<script>
+
+/* Page switches */
+function showGallery(){
+    document.getElementById("startPage").classList.add("hidden");
+    document.getElementById("galleryPage").classList.remove("hidden");
+}
+
+function showProposal(){
+    document.getElementById("galleryPage").classList.add("hidden");
+    document.getElementById("proposalPage").classList.remove("hidden");
+}
+
+function finalYes(){
+    document.getElementById("proposalPage").classList.add("hidden");
+    document.getElementById("finalPage").classList.remove("hidden");
+}
+
+/* No button run away */
+function makeRun(id){
+    let btn=document.getElementById(id);
+    btn.addEventListener("mouseover",function(){
+        btn.style.position="absolute";
+        btn.style.top=Math.random()*window.innerHeight+"px";
+        btn.style.left=Math.random()*window.innerWidth+"px";
+    });
+}
+makeRun("noBtn");
+makeRun("noBtn2");
+
+/* Floating hearts */
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💗";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
